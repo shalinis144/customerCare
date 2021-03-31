@@ -1,0 +1,76 @@
+1.create unique id for each call
+Input-CallerNumber,CalledNum,calleddate
+Output-uniqueid
+
+
+2.fetch available agents
+Input-uniqueid
+Output-return available agent number or voicemail
+
+
+3.change agent status
+Input -agentid,uniqueid
+Output -return true or false
+
+
+
+4.update call status
+Input-uniqueid,callstatus,callStarttime,CallEndTime,Duration,Voicelog,agentid
+output-return true or false
+
+
+
+TableName-CallLog
+field-idcalllog bigint IDENTITY(1,1) primarykey,
+	calleddate datetime ,
+	callstatus varchar(30) ,
+	callduration int ,
+	callerid varchar(20) ,
+	patchedid int ,
+	patchedphone varchar(20) ,
+	callstarttime datetime ,
+	callendtime datetime ,
+	logfile varchar(max) ,
+	voiceduration int ,
+	calleddid varchar(20) 
+
+
+TableName-MasterAgent
+fields-idagent int IDENTITY(1,1),
+	agentnumber varchar(20),
+	agentstatus bool or int,1 0
+	lastupdated datetime,
+	agentname varchar(100),
+	
+If agent is free - 1
+Busy-0
+
+
+
+TableName-TemporaryAgent
+fields-TrID int IDENTITY(1,1),
+	AgentId int,
+	AgentNumber varchar(20),
+	CallerId varchar(20),
+	CallLogId bigint,
+	LastUpdatedDate datetime,
+	agentStatus varchar(10)
+
+
+
+calllog
+Id
+CallerID-customer Number
+CalledDID-Called Number(121)
+CalledDate
+Callstatus-connected,missed
+Agentid-
+Agent number
+Starttime
+Endtime
+Voice file
+
+
+
+
+
